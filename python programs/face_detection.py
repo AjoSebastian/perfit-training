@@ -11,7 +11,12 @@ img = cv2.imread(input_dir)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 for (x,y,w,h) in faces:
-    img = cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+    #img = cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+
+    cx=x+w*.5
+    cy=y+h*.5
+    r=(h)*.5
+    img =  cv2.circle(img,(int(cx),int(cy)),(int(r)),(255,0,0),2)
     roi_gray = gray[y:y+h, x:x+w]
     roi_color = img[y:y+h, x:x+w]
     eyes = eye_cascade.detectMultiScale(roi_gray)

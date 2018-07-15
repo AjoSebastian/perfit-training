@@ -4,7 +4,7 @@ import numpy as np
 
 bgdModel = np.zeros((1,65),np.float64)
 fgdModel = np.zeros((1,65),np.float64)
-rect = (200,0,440,480)
+rect = (160,0,160,190)
 
 def mask(img):
     mask = np.zeros(img.shape[:2],np.uint8)
